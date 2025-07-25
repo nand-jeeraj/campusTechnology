@@ -12,7 +12,7 @@ load_dotenv()
 router = APIRouter()
 
 # MongoDB Connection
-client = MongoClient(os.getenv("MONGODB_URI"))
+client = MongoClient(os.getenv("MONGO_URI"))
 db = client["edu_app"]
 quizzes_collection = db["quizzes"]
 scheduled_quizzes_collection = db["scheduled_quizzes"]
