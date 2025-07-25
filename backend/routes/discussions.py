@@ -16,7 +16,7 @@ app = FastAPI()
 router = APIRouter()
 
 # MongoDB Connection
-client = MongoClient(os.getenv("MONGODB_URI"))
+client = MongoClient(os.getenv("MONGO_URI"))
 db = client["edu_app"]
 discussions_collection = db["discussions"]
 users_collection = db["users"]
