@@ -19,7 +19,7 @@ class EvalRequest(BaseModel):
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://effortless-chebakia-71c422.netlify.app/"],  # ✅ Allow ALL origins (or "http://localhost:3000" only)
+    allow_origins=["*"],  # ✅ Allow ALL origins (or "http://localhost:3000" only)
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
