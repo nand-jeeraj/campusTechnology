@@ -4,3 +4,4 @@ dotenv
 python-multipart
 scikit-learn
 openai
+uvicorn
