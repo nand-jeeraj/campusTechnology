@@ -12,7 +12,7 @@ load_dotenv()
 router = APIRouter()
 
 # MongoDB Connection
-client = MongoClient(os.getenv("MONGODB_URI"))
+client = MongoClient("mongodb+srv://campustechnology:Campus_Technology@cluster0.ns6jg36.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 db = client["edu_app"]
 quizzes_collection = db["quizzes"]
 scheduled_quizzes_collection = db["scheduled_quizzes"]
