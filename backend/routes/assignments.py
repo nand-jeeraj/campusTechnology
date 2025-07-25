@@ -20,7 +20,7 @@ logger = logging.getLogger(__name__)
 router = APIRouter()
 
 # MongoDB Connection
-client = MongoClient(os.getenv("MONGODB_URI"))
+client = MongoClient(os.getenv("MONGO_URI"))
 db = client["edu_app"]
 assignments_collection = db["assignments"]
 scheduled_assignments_collection = db["scheduled_assignments"]
