@@ -47,7 +47,7 @@ def submit_quiz(data: Submission):
                 score = 1
         elif q["type"] == "descriptive":
             try:
-                res = requests.post("http://localhost:8000/evaluate-descriptive", json={
+                res = requests.post("/evaluate-descriptive", json={
                     "student_answer": user_ans,
                     "correct_answer": correct
                 })
