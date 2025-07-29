@@ -1,7 +1,7 @@
 from fastapi import FastAPI, APIRouter
 from routes import (quizzes, assignments, evaluation, submission, evaluation, 
                     generate_questions, explain_answers, discussions, announcements, 
-                    auth, feedback, meetings, ratings, users)
+                    auth, feedback, meetings, ratings, users, forms)
 from fastapi.middleware.cors import CORSMiddleware
 from routes.assignment_fetch import router as assignment_fetch_router
 from routes.admin_view import router as admin_router
@@ -42,6 +42,7 @@ app.include_router(feedback.router)
 app.include_router(meetings.router)
 app.include_router(ratings.router)
 app.include_router(users.router)
+app.include_router(forms.router)
 
 @router.post("/evaluate-descriptive")
 def evaluate_descriptive(data: EvalRequest):
