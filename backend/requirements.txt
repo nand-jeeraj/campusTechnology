@@ -9,7 +9,7 @@ click==8.1.8
 cmake==4.0.3
 colorama==0.4.6
 deepface==0.0.93
-./dlib-19.22.99-cp39-cp39-win_amd64.whl
+dlib==19.22.99
 dnspython==2.7.0
 dotenv==0.9.9
 dependencies
