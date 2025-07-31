@@ -1,11 +1,17 @@
 from fastapi import FastAPI, APIRouter
-from routes import (quizzes, assignments, evaluation, submission, evaluation, 
-                    generate_questions, explain_answers, discussions, announcements, 
-                    auth, feedback, meetings, ratings, users, forms)
+
+from routes.quizassign import (quizzes, assignments, evaluation, submission, generate_questions, explain_answers, forms)
+
+from routes.social import (discussions, announcements, feedback, meetings, ratings, users)
+
+from routes.attendance import (dashboard, known_face, upload)
+
 from fastapi.middleware.cors import CORSMiddleware
-from routes.assignment_fetch import router as assignment_fetch_router
-from routes.admin_view import router as admin_router
-from routes.student_view import router as student_router
+from routes.quizassign.assignment_fetch import router as assignment_fetch_router
+from routes.quizassign.admin_view import router as admin_router
+from routes.quizassign.student_view import router as student_router
+from routes.auth.auth import router as auth_router
+from routes.auth.face_login import router as face_login_router
 from pydantic import BaseModel
 from difflib import SequenceMatcher
 import uvicorn
@@ -25,7 +31,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(auth.router)
+# app.include_router(auth.router)
 app.include_router(evaluation.router)
 app.include_router(quizzes.router)
 app.include_router(assignments.router)
@@ -43,6 +49,11 @@ app.include_router(meetings.router)
 app.include_router(ratings.router)
 app.include_router(users.router)
 app.include_router(forms.router)
+app.include_router(known_face.router)
+app.include_router(upload.router)
+app.include_router(dashboard.router)
+app.include_router(auth_router)
+app.include_router(face_login_router)
 
 @router.post("/evaluate-descriptive")
 def evaluate_descriptive(data: EvalRequest):
@@ -54,7 +65,7 @@ def evaluate_descriptive(data: EvalRequest):
 
 @app.get("/")
 def root():
-    return {"msg": "Quiz & Assignment Backend is running"}
+    return {"msg": "Backend is running"}
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)
