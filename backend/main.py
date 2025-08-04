@@ -12,6 +12,7 @@ from difflib import SequenceMatcher
 from flask_login import LoginManager
 from routes.auth.user import DummyUser
 import os
+from routes.profile.profile import router as profile_router
 
 app = Flask(__name__)
 CORS(app, supports_credentials=True)
@@ -43,6 +44,7 @@ app.register_blueprint(upload.router)
 app.register_blueprint(dashboard.router)
 app.register_blueprint(auth_router)
 app.register_blueprint(face_login_router)
+app.register_blueprint(profile_router)
 
 @app.route("/", methods=["GET"])
 def root():

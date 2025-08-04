@@ -5,6 +5,7 @@ import App from './App';
 import SocialApp from './SocialApp';
 import AttendanceApp from './AttendanceApp';
 import AuthApp from './AuthApp';
+import ProfileApp from './ProfileApp';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const path = window.location.pathname;
@@ -27,6 +28,13 @@ else if (path.startsWith('/auth')){
   root.render(
     <BrowserRouter>
       <AuthApp />
+    </BrowserRouter>
+  );
+}
+else if (path.startsWith('/profile')) {
+  root.render(
+    <BrowserRouter>
+      <ProfileApp />
     </BrowserRouter>
   );
 }

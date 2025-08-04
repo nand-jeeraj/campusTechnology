@@ -163,7 +163,7 @@ function LandingPage() {
               whileTap={{ scale: 0.95 }}
               onClick={(e) => {
                 e.preventDefault();
-                window.location.href = "/attendance"; // Force full page reload
+                window.location.href = "/attendance";
               }}
             >
               <IconWrapper>
@@ -179,7 +179,7 @@ function LandingPage() {
           whileTap={{ scale: 0.95 }}
           onClick={(e) => {
             e.preventDefault();
-            window.location.href = "/discussions"; // Force full page reload
+            window.location.href = "/discussions";
           }}
         >
           <IconWrapper>
@@ -199,7 +199,7 @@ function LandingPage() {
           whileTap={{ scale: 0.95 }}
           onClick={(e) => {
             e.preventDefault();
-            window.location.href = "/discussions"; // Force full page reload
+            window.location.href = "/discussions";
           }}
         >
           <IconWrapper>
@@ -211,9 +211,14 @@ function LandingPage() {
         
         {/* Common buttons can be added here */}
         <DashboardButton 
+          as="a"
+          href="/profile"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          disabled
+          onClick={(e) => {
+            e.preventDefault();
+            window.location.href = "/profile";
+          }}
         >
           <IconWrapper>
             {userRole === "Faculty" ? <FacultyIcon /> : <StudentIcon />}
