@@ -12,3 +12,4 @@ face_recognition
 flask_login
 opencv-python
 numpy==1.26.4
+gunicorn
