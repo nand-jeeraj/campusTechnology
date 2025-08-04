@@ -19,3 +19,6 @@ Thumbs.db
 # Ignore database or migration files (optional)
 *.sqlite3
 migrations/
+
+# Ignore node_modules
+node_modules/
