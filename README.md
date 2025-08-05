@@ -131,15 +131,20 @@ React app will run on http://localhost:3000 and will proxy requests to Flask
 
 ---
 
-## 🔐 Environment Variables Explanation
+## 🔐 Environment Variables Explanation (Backend)
 
 | Variable            | Description                                      |
 | ------------------- | ------------------------------------------------ |
 | `MONGO_URI`         | MongoDB connection URI for your Atlas cluster    |
 | `DB_NAME`           | Name of the MongoDB database                     |
 | `OPENAI_API_KEY`    | API Key from OpenAI (used for explanation logic) |
-| `REACT_APP_API_URL` | Base URL for API calls in React                  |
 | `SECRET_KEY`        | Flask secret key used for sessions/auth          |
+
+## 🔐 Environment Variables Explanation (Frontend)
+
+| Variable            | Description                                      |
+| ------------------- | ------------------------------------------------ |
+| `REACT_APP_API_URL` | Base URL for API calls in React                  |
 
 ---
 
@@ -186,8 +191,8 @@ Once both frontend and backend are running:
 📧 manojraj15@hotmail.com
 🌐 [Portfolio](https://manojrajgopal.github.io/portfolio/) | [GitHub](https://github.com/manojrajgopal/)
 
-### Nandana Jeeraj
-📧 nandanajeeraj@gmail.com
+### Nandhana Jeeraj
+📧 nandhanajeeraj@gmail.com
 
 ---
 
