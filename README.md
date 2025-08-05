@@ -35,6 +35,7 @@ This system is divided into two main components:
 
 ## 📁 Project Structure
 
+```bash
 campusTechnology/
 │
 ├── backend/ → Flask server and logic
@@ -66,9 +67,10 @@ campusTechnology/
 │
 └── .gitignore
 └── README.md
-
+```
 
 ---
+
 
 ## ⚙️ Installation Guide
 
@@ -96,11 +98,13 @@ pip install -r requirements.txt
 c. Add .env file
 Create a .env file in the backend/ folder and paste the following (update sensitive keys before deploying):
 
-MONGO_URI=mongodb+srv://campustechnology:Campus_Technology@cluster0.ns6jg36.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+```bash
+MONGO_URI=mongo_db url
 DB_NAME=edu_app
 OPENAI_API_KEY=your_openai_api_key
 REACT_APP_API_URL=http://localhost:8000
 SECRET_KEY=supersecretkey123
+```
 
 d. Run Flask backend
 
@@ -108,6 +112,7 @@ d. Run Flask backend
 python main.py
 ```
 Flask server will run on http://localhost:8000
+
 
 ### 3. Frontend Setup (React)
 
@@ -124,6 +129,8 @@ npm start
 
 React app will run on http://localhost:3000 and will proxy requests to Flask
 
+---
+
 ## 🔐 Environment Variables Explanation
 
 | Variable            | Description                                      |
@@ -134,40 +141,55 @@ React app will run on http://localhost:3000 and will proxy requests to Flask
 | `REACT_APP_API_URL` | Base URL for API calls in React                  |
 | `SECRET_KEY`        | Flask secret key used for sessions/auth          |
 
+---
+
 ### 🚀 Usage Guide
 Once both frontend and backend are running:
 
-🧍‍♂️ Register or Face Register via /register or /facelogin
+    🧍‍♂️ Register or Face Register via /register or /facelogin
 
-📚 Students can take quizzes, submit assignments
+    📚 Students can take quizzes, submit assignments
 
-👩‍🏫 Faculties can create assignments, quizzes, evaluate
+    👩‍🏫 Faculties can create assignments, quizzes, evaluate
 
-📣 Use announcements, meetings, feedback to interact
+    📣 Use announcements, meetings, feedback to interact
+
+---
 
 ### 📌 Important Notes
-⚠️ Avoid committing .env file to Git.
+    ⚠️ Avoid committing .env file to Git.
 
-✅ Backend is modular and extendable (uses Blueprints).
+    ✅ Backend is modular and extendable (uses Blueprints).
 
-✅ Frontend supports role-based UI for students & faculties.
+    ✅ Frontend supports role-based UI for students & faculties.
 
-🧪 OpenAI API is used optionally — disable in production if needed.
+    🧪 OpenAI API is used optionally — disable in production if needed.
+
+---
 
 ### 📷 Face Authentication
-The backend uses Dlib for face recognition. To ensure compatibility:
+    The backend uses Dlib for face recognition. To ensure compatibility:
 
-Pre-download required .whl file for your platform (dlib-*.whl)
+    Pre-download required .whl file for your platform (dlib-*.whl)
 
-Make sure opencv-python, numpy, and face_recognition are installed
+    Make sure opencv-python, numpy, and face_recognition are installed
+
+---
 
 ### 🧾 License
-This project is open-source and free to use for educational purposes.
+    This project is open-source and free to use for educational purposes.
+
+---
 
 ## 👨‍💻 Author
-Manoj R
+### Manoj R
 📧 manojraj15@hotmail.com
-🌐 Portfolio | GitHub
+🌐 [Portfolio](https://manojrajgopal.github.io/portfolio/) | [GitHub](https://github.com/manojrajgopal/)
+
+### Nandana Jeeraj
+📧 nandanajeeraj@gmail.com
+
+---
 
 ### 📬 Feedback or Contributions?
 Feel free to fork, open issues or contribute to this project. Let's build better education tech together!
