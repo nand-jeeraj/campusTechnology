@@ -13,7 +13,7 @@ const LandingContainer = styled.div`
 
 const Title = styled(motion.h1)`
   font-size: 2.5rem;
-  color: #2b6cb0;
+  color: ${props => props.role?.toLowerCase() === 'faculty' ? '#e53e3e' : '#4299e1'};
   margin-bottom: 2rem;
   position: relative;
   padding-bottom: 1rem;
@@ -26,7 +26,9 @@ const Title = styled(motion.h1)`
     transform: translateX(-50%);
     width: 100px;
     height: 4px;
-    background: linear-gradient(90deg, #4299e1, #48bb78);
+    background: ${props => props.role?.toLowerCase() === 'faculty' 
+      ? 'linear-gradient(90deg, #f56565, #e53e3e)' 
+      : 'linear-gradient(90deg, #4299e1, #3676bbff)'};
     border-radius: 2px;
   }
 `;
@@ -58,7 +60,7 @@ const DashboardButton = styled(motion.button)`
   &:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    color: #2b6cb0;
+    color: ${props => props.role?.toLowerCase() === 'faculty' ? '#e53e3e' : '#4299e1'};
   }
 `;
 
@@ -68,10 +70,16 @@ const IconWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #ebf8ff;
+  background: ${props => props.role?.toLowerCase() === 'faculty' ? '#ffdadaff' : '#ddeeffff'};
   border-radius: 50%;
-  color: #4299e1;
+  color: ${props => props.role?.toLowerCase() === 'faculty' ? '#e53e3e' : '#4299e1'};
+
+  svg {
+    stroke: currentColor;  // This makes the SVG follow the wrapper's color
+  }
 `;
+
+const userRole = (localStorage.getItem("user_role") || "student").toLowerCase();
 
 const QuizIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -88,10 +96,13 @@ const AssignmentIcon = () => (
 );
 
 const AttendanceIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-    <circle cx="8.5" cy="7" r="4"></circle>
-    <path d="M17 11h4m-2 2v-4"></path>
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" 
+       viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+    <line x1="16" y1="2" x2="16" y2="6"/>
+    <line x1="8" y1="2" x2="8" y2="6"/>
+    <line x1="3" y1="10" x2="21" y2="10"/>
+    <path d="M9 16l2 2 4-4"/>
   </svg>
 );
 
@@ -131,7 +142,7 @@ function LandingPage() {
 
   return (
     <LandingContainer>
-      <Title
+      <Title role={userRole}
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -142,12 +153,13 @@ function LandingPage() {
       <DashboardGrid>
         {/* Quiz and Assignment - visible to all */}
         <DashboardButton 
+          role={userRole}
           as={Link} 
           to="/quiz-assignment"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          <IconWrapper>
+          <IconWrapper role={userRole}>
             <QuizIcon />
           </IconWrapper>
           Quiz and Assignment
@@ -156,7 +168,7 @@ function LandingPage() {
         {/* Faculty-only buttons */}
         {userRole === "Faculty" && (
           <>
-            <DashboardButton 
+            <DashboardButton role={userRole} 
             as="a"
             href="/attendance"
               whileHover={{ scale: 1.05 }}
@@ -166,13 +178,14 @@ function LandingPage() {
                 window.location.href = "/attendance";
               }}
             >
-              <IconWrapper>
+              <IconWrapper role={userRole}>
                 <AttendanceIcon />
               </IconWrapper>
               Attendance
             </DashboardButton>
 
         <DashboardButton 
+          role={userRole}
           as="a"  // Use anchor tag instead of Link
           href="/social"  // Use href instead of to
           whileHover={{ scale: 1.05 }}
@@ -182,7 +195,7 @@ function LandingPage() {
             window.location.href = "/discussions";
           }}
         >
-          <IconWrapper>
+          <IconWrapper role={userRole}>
             <DiscussionIcon />
           </IconWrapper>
           Social & Collaboration
@@ -193,6 +206,7 @@ function LandingPage() {
         {/* Student-only buttons */}
         {userRole === "Student" && (
         <DashboardButton 
+          role={userRole}
           as="a"  // Use anchor tag instead of Link
           href="/social"  // Use href instead of to
           whileHover={{ scale: 1.05 }}
@@ -202,7 +216,7 @@ function LandingPage() {
             window.location.href = "/discussions";
           }}
         >
-          <IconWrapper>
+          <IconWrapper role={userRole}>
             <DiscussionIcon />
           </IconWrapper>
           Social & Collaboration
@@ -211,6 +225,7 @@ function LandingPage() {
         
         {/* Common buttons can be added here */}
         <DashboardButton 
+          role={userRole}
           as="a"
           href="/profile"
           whileHover={{ scale: 1.05 }}
@@ -220,13 +235,14 @@ function LandingPage() {
             window.location.href = "/profile";
           }}
         >
-          <IconWrapper>
+          <IconWrapper role={userRole}>
             {userRole === "Faculty" ? <FacultyIcon /> : <StudentIcon />}
           </IconWrapper>
           {userRole === "Faculty" ? "Faculty Profile" : "Student Profile"}
         </DashboardButton>
 
         <DashboardButton 
+        role={userRole}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           onClick={() => {
@@ -234,7 +250,7 @@ function LandingPage() {
             window.location.href = "/auth/login-options"; // redirect after logout
           }}
         >
-          <IconWrapper>
+          <IconWrapper role={userRole}>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
               <path strokeLinecap="round" strokeLinejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7" />
               <path strokeLinecap="round" strokeLinejoin="round" d="M3 12a9 9 0 0118 0" />

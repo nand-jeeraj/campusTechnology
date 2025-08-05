@@ -38,7 +38,7 @@ const ProfileTitle = styled(motion.h1)`
     height: 4px;
     background: ${props => props.role === 'faculty' 
       ? 'linear-gradient(90deg, #f56565, #e53e3e)' 
-      : 'linear-gradient(90deg, #4299e1, #48bb78)'};
+      : 'linear-gradient(90deg, #4299e1, #3676bbff)'};
     border-radius: 2px;
   }
 `;
@@ -52,7 +52,7 @@ const ProfileCard = styled(motion.div)`
   grid-template-columns: 1fr 2fr;
   gap: 3rem;
   position: relative;
-  border-top: 4px solid ${props => props.role === 'faculty' ? '#f56565' : '#48bb78'};
+  border-top: 4px solid ${props => props.role === 'faculty' ? '#f56565' : '#2b6cb0'};
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
@@ -130,7 +130,7 @@ const DetailItem = styled.div`
     top: 0;
     height: 100%;
     width: 3px;
-    background: ${props => props.role === 'faculty' ? '#f56565' : '#48bb78'};
+    background: ${props => props.role === 'faculty' ? '#f56565' : '#2b6cb0'};
     border-radius: 3px;
   }
 `;
@@ -150,7 +150,7 @@ const DetailLabel = styled.p`
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: ${props => props.role === 'faculty' ? '#f56565' : '#48bb78'};
+    background: ${props => props.role === 'faculty' ? '#f56565' : '#2b6cb0'};
   }
 `;
 
@@ -166,7 +166,7 @@ const EditButton = styled(motion.button)`
   padding: 0.75rem 1.5rem;
   background: ${props => props.role === 'faculty' 
     ? 'linear-gradient(135deg, #f56565, #e53e3e)' 
-    : 'linear-gradient(135deg, #48bb78, #38a169)'};
+    : 'linear-gradient(135deg, #2b6cb0, #3676bbff)'};
   color: white;
   border: none;
   border-radius: 0.5rem;
@@ -210,7 +210,7 @@ const EditButton = styled(motion.button)`
 const RoleBadge = styled.span`
   background: ${props => props.role === 'faculty' 
     ? 'linear-gradient(135deg, #f56565, #e53e3e)' 
-    : 'linear-gradient(135deg, #48bb78, #38a169)'};
+    : 'linear-gradient(135deg, #2b6cb0, #3676bbff)'};
   color: white;
   padding: 0.25rem 0.75rem;
   border-radius: 9999px;
@@ -233,7 +233,7 @@ const DashboardButton = styled(motion.button)`
   padding: 0.75rem 1.5rem;
   background: ${props => props.role === 'faculty' 
     ? 'linear-gradient(135deg, #f56565, #e53e3e)' 
-    : 'linear-gradient(135deg, #48bb78, #38a169)'};
+    : 'linear-gradient(135deg, #2b6cb0, #3676bbff)'};
   color: white;
   border: none;
   border-radius: 0.5rem;
@@ -303,7 +303,7 @@ const LoadingSpinner = styled.div`
 
 const CourseBadge = styled.span`
   background: ${props => props.role === 'faculty' ? '#fff5f5' : '#f0fff4'};
-  color: ${props => props.role === 'faculty' ? '#9b2c2c' : '#276749'};
+  color: ${props => props.role === 'faculty' ? '#9b2c2c' : '#3676bbff'};
   padding: 0.25rem 0.75rem;
   border-radius: 9999px;
   font-size: 0.75rem;
@@ -345,14 +345,14 @@ const PasswordChangeTitle = styled.h3`
     height: 3px;
     background: ${props => props.role === 'faculty' 
       ? 'linear-gradient(90deg, #f56565, #e53e3e)' 
-      : 'linear-gradient(90deg, #4299e1, #48bb78)'};
+      : 'linear-gradient(90deg, #4299e1, #3676bbff)'};
     border-radius: 2px;
   }
 `;
 
 const PasswordChangeButton = styled.button`
   padding: 0.5rem 1rem;
-  background: ${props => props.role === 'faculty' ? '#f56565' : '#48bb78'};
+  background: ${props => props.role === 'faculty' ? '#f56565' : '#3676bbff'};
   color: white;
   border: none;
   border-radius: 0.375rem;
@@ -362,7 +362,7 @@ const PasswordChangeButton = styled.button`
   transition: all 0.2s ease;
 
   &:hover {
-    background: ${props => props.role === 'faculty' ? '#e53e3e' : '#38a169'};
+    background: ${props => props.role === 'faculty' ? '#e53e3e' : '#2b6cb0'};
     transform: translateY(-1px);
   }
 `;
@@ -384,7 +384,7 @@ const PasswordInput = styled.input`
 
   &:focus {
     outline: none;
-    border-color: ${props => props.role === 'faculty' ? '#f56565' : '#48bb78'};
+    border-color: ${props => props.role === 'faculty' ? '#f56565' : '#2b6cb0'};
     box-shadow: 0 0 0 3px ${props => props.role === 'faculty' 
       ? 'rgba(245, 101, 101, 0.2)' 
       : 'rgba(72, 187, 120, 0.2)'};
@@ -433,7 +433,7 @@ const PasswordChangeContainer = styled(motion.div)`
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
   padding: 2rem;
   margin-top: 2rem;
-  border-top: 4px solid ${props => props.role === 'faculty' ? '#f56565' : '#48bb78'};
+  border-top: 4px solid ${props => props.role === 'faculty' ? '#f56565' : '#2b6cb0'};
   overflow: hidden;
 `;
 
