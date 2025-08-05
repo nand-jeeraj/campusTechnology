@@ -151,11 +151,11 @@ React app will run on http://localhost:3000 and will proxy requests to Flask
 ### 🚀 Usage Guide
 Once both frontend and backend are running:
 
-    🧍‍♂️ Register or Face Register via /register or /facelogin
+    🧍‍♂️ Register and Face Login via /register or /facelogin
 
     📚 Students can take quizzes, submit assignments
 
-    👩‍🏫 Faculties can create assignments, quizzes, evaluate
+    👩‍🏫 Faculties can create assignments, quizzes, evaluate and mark group attendance
 
     📣 Use announcements, meetings, feedback to interact
 
