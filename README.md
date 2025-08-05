@@ -192,7 +192,7 @@ Once both frontend and backend are running:
 🌐 [Portfolio](https://manojrajgopal.github.io/portfolio/) | [GitHub](https://github.com/manojrajgopal/)
 
 ### Nandhana Jeeraj
-📧 nandhanajeeraj@gmail.com
+📧 nandhanajeeraj@gmail.com | [Github](https://github.com/nand-jeeraj)
 
 ---
 
